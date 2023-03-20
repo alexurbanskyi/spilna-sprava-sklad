@@ -1,0 +1,16 @@
+.header{
+    background-color: black;
+    padding: 20px;
+}
+.nav_list{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+.nav_link a{
+    color: white;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
