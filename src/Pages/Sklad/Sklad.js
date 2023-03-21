@@ -1,10 +1,13 @@
 import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
 import './sklad.css'
 
 function Sklad() {
   return (
     <div className='sklad'>
-      SKLAD!!!
+      <Link to='desktop' >Cистемний блок</Link>
+      NAVBAR MENU
+      <Outlet/>
     </div>
   )
 }
