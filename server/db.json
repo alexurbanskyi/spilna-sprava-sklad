@@ -19,6 +19,16 @@
       "id": 4,
       "cardId": 1223423897,
       "userName": "Новак Анатолій"
+    },
+    {
+      "cardId": "234544",
+      "userName": "Вова Вова",
+      "id": 5
+    },
+    {
+      "cardId": "345",
+      "userName": "Alex",
+      "id": 6
     }
   ],
   "devices": [
@@ -41,7 +51,7 @@
     },
     {
       "id": 2,
-      "monitors":[
+      "monitors": [
         {
           "id": 1,
           "monitorId": 1245,
