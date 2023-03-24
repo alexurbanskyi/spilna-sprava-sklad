@@ -14,59 +14,52 @@
       "id": 3,
       "cardId": 58745,
       "userName": "Кириленко Олександр"
-    },
-    {
-      "id": 4,
-      "cardId": 1223423897,
-      "userName": "Новак Анатолій"
-    },
-    {
-      "cardId": "234544",
-      "userName": "Вова Вова",
-      "id": 5
-    },
-    {
-      "cardId": "345",
-      "userName": "Alex",
-      "id": 6
     }
   ],
-  "devices": [
+  "desktops": [
     {
       "id": 1,
-      "desktops": [
-        {
-          "id": 1,
-          "desktopId": 124578,
-          "videoCard": "GForce 4600",
-          "master": null
-        },
-        {
-          "id": 2,
-          "desktopId": 987,
-          "videoCard": "NVideo 5000",
-          "master": 123456
-        }
-      ]
+      "desktopId": 124578,
+      "videoCard": "GForce 4600",
+      "master": null
     },
     {
       "id": 2,
-      "monitors": [
-        {
-          "id": 1,
-          "monitorId": 1245,
-          "model": "LG",
-          "diogonal": "17",
-          "master": null
-        },
-        {
-          "id": 2,
-          "monitorId": 989,
-          "model": "SONY",
-          "diogonal": "19",
-          "master": 123456
-        }
-      ]
+      "desktopId": 987,
+      "videoCard": "NVideo 5000",
+      "master": 123456
+    },
+    {
+      "id": 3,
+      "desktopId": 937,
+      "videoCard": "NVideo 3455",
+      "master": null
+    },
+    {
+      "id": 4,
+      "desktopId": 937,
+      "videoCard": "NVideo 3455",
+      "master": null
+    }
+  ],
+  "monitors": [
+    {
+      "id": 1,
+      "desktopId": 124578,
+      "videoCard": "GForce 4600",
+      "master": null
+    },
+    {
+      "id": 2,
+      "desktopId": 987,
+      "videoCard": "NVideo 5000",
+      "master": 123456
+    },
+    {
+      "id": 3,
+      "desktopId": 937,
+      "videoCard": "NVideo 3455",
+      "master": null
     }
   ]
 }
