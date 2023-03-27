@@ -1,65 +1,21 @@
 {
   "users": [
     {
-      "id": 1,
-      "cardId": 123456,
-      "userName": "Урбанський Олександр"
+      "cardId": "125674",
+      "userName": "Гоша",
+      "id": 2
     },
     {
-      "id": 2,
-      "cardId": 12897,
-      "userName": "Швец Роман"
+      "cardId": "45555122",
+      "userName": "Вова Вова",
+      "id": 4
     },
     {
-      "id": 3,
-      "cardId": 58745,
-      "userName": "Кириленко Олександр"
+      "cardId": "34533",
+      "userName": "Сан Санич",
+      "id": 5
     }
   ],
-  "desktops": [
-    {
-      "id": 1,
-      "desktopId": 124578,
-      "videoCard": "GForce 4600",
-      "master": null
-    },
-    {
-      "id": 2,
-      "desktopId": 987,
-      "videoCard": "NVideo 5000",
-      "master": 123456
-    },
-    {
-      "id": 3,
-      "desktopId": 937,
-      "videoCard": "NVideo 3455",
-      "master": null
-    },
-    {
-      "id": 4,
-      "desktopId": 937,
-      "videoCard": "NVideo 3455",
-      "master": null
-    }
-  ],
-  "monitors": [
-    {
-      "id": 1,
-      "desktopId": 124578,
-      "videoCard": "GForce 4600",
-      "master": null
-    },
-    {
-      "id": 2,
-      "desktopId": 987,
-      "videoCard": "NVideo 5000",
-      "master": 123456
-    },
-    {
-      "id": 3,
-      "desktopId": 937,
-      "videoCard": "NVideo 3455",
-      "master": null
-    }
-  ]
+  "desktops": [],
+  "monitors": []
 }

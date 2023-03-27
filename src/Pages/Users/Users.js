@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import AddUserModal from "../../component/AddUserModal/AddUserModal";
 import DeleteUserModal from "../../component/DeleteUserModal/DeleteUserModal";
 import Loader from "../../component/Loader/Loader";
+import { useUpdateUserMutation } from "../../redux/usersApi";
 
 import "./users.css";
 
@@ -9,12 +11,21 @@ function Users({ users, isLoading }) {
   const [openAddModa, setOpenAddModal] = useState(false);
   const [openDeleteModa, setDeleteAddModal] = useState(false);
   const [userdata, setUserData] = useState(null);
+  const [updateUser] = useUpdateUserMutation();
 
- function deleteUserModal(data) {
+  function deleteUserModal(data) {
     setUserData(data);
     setDeleteAddModal(true);
   }
 
+  let us = {
+    cardId: "34",
+    userName: "Вова Вова",
+    id: 3,
+  };
+  async function uppp() {
+    await updateUser({ ...us, userName: "UPDATE" });
+  }
   return (
     <>
       {isLoading ? (
@@ -29,7 +40,7 @@ function Users({ users, isLoading }) {
                 {user.cardId} - {user.userName}
               </p>
               <div className="user_icons">
-                <div className="user_icon edit_icon">&#x270E;</div>
+                <Link to={`/${user.cardId}`} className="user_icon edit_icon ">&#x270E;</Link>
                 <div
                   className="user_icon delete_icon"
                   onClick={() => deleteUserModal(user)}
@@ -39,13 +50,18 @@ function Users({ users, isLoading }) {
               </div>
             </div>
           ))}
+          {/* <button onClick={uppp}>update</button> */}
           <div
             className="user_add_button"
             onClick={() => setOpenAddModal(true)}
           >
             +
           </div>
-          <AddUserModal open={openAddModa} setOpen={setOpenAddModal} users={users} />
+          <AddUserModal
+            open={openAddModa}
+            setOpen={setOpenAddModal}
+            users={users}
+          />
           <DeleteUserModal
             open={openDeleteModa}
             setOpen={setDeleteAddModal}

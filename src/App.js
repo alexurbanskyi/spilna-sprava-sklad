@@ -8,6 +8,7 @@ import Desktop from "./Pages/Desktop/Desktop";
 import { useGetDesktopsQuery, useGetDevicesQuery } from "./redux/devicesApi";
 import AllDevices from "./Pages/AllDevices/AllDevices";
 import Monitors from "./Pages/Monitors/Monitors";
+import UserInfo from "./Pages/UserInfo/UserInfo";
 
 function App() {
   const { data: userData = [], isLoading: isUsersLoading } = useGetUsersQuery();
@@ -25,6 +26,11 @@ function App() {
           path="/"
           element={<Users users={userData} isLoading={isUsersLoading} />}
         />
+        <Route
+          path="/:userid"
+          element={<UserInfo users={userData} isLoading={isUsersLoading}/>}
+        />
+
         <Route path="sklad" element={<Sklad />}>
           <Route
             index

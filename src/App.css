@@ -4,9 +4,11 @@
   box-sizing: border-box;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+a{
+  text-decoration: none;
+}
 .app {
  display: flex;
  flex-direction: column;
- background-color: aqua;
  height: 100vh;
 }
