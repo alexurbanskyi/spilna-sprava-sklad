@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const devicesApi = createApi({
   reducerPath: "devicesApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/" }),
-  tagTypes: ['desktop'],
+  tagTypes: ["desktop", "monitors"],
   endpoints: (build) => ({
     // getDevices: build.query({
     //   query: () => "devices",
@@ -21,7 +21,24 @@ export const devicesApi = createApi({
       }),
       invalidatesTags: ["desktops"],
     }),
+    getMonitors: build.query({
+      query: () => "/monitors",
+      providesTags: ["monitors"],
+    }),
+
+    addMonitor: build.mutation({
+      query: (body) => ({
+        url: "/monitors",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["monitors"],
+    }),
   }),
 });
 
-export const { useGetDesktopsQuery, useAddDesktopMutation } = devicesApi;
+export const {
+  useGetDesktopsQuery,
+  useAddDesktopMutation,
+  useGetMonitorsQuery,
+} = devicesApi;

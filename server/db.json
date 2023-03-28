@@ -17,5 +17,18 @@
     }
   ],
   "desktops": [],
-  "monitors": []
+  "monitors": [
+    {
+      "monitorId": 1525,
+      "brand": "LG",
+      "diagonal": "19",
+      "master": null
+    },
+    {
+      "monitorId": 652,
+      "brand": "SONY",
+      "diagonal": "21",
+      "master": "Перович"
+    }
+  ]
 }

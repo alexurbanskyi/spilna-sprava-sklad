@@ -5,7 +5,11 @@ import Header from "./component/Header/Header";
 import Sklad from "./Pages/Sklad/Sklad";
 import { useGetUsersQuery } from "./redux/usersApi";
 import Desktop from "./Pages/Desktop/Desktop";
-import { useGetDesktopsQuery, useGetDevicesQuery } from "./redux/devicesApi";
+import {
+  useGetDesktopsQuery,
+  useGetDevicesQuery,
+  useGetMonitorsQuery,
+} from "./redux/devicesApi";
 import AllDevices from "./Pages/AllDevices/AllDevices";
 import Monitors from "./Pages/Monitors/Monitors";
 import UserInfo from "./Pages/UserInfo/UserInfo";
@@ -14,6 +18,8 @@ function App() {
   const { data: userData = [], isLoading: isUsersLoading } = useGetUsersQuery();
   const { data: desktopData = [], isLoading: isdesktopLoading } =
     useGetDesktopsQuery();
+  const { data: monitorsData = [], isLoading: isMonitorsLoading } =
+    useGetMonitorsQuery();
 
   console.log("desktopData -->", desktopData);
   //console.log('isDevicesDataLoasing -->', isDevicesDataLoading)
@@ -28,7 +34,7 @@ function App() {
         />
         <Route
           path="/:userid"
-          element={<UserInfo users={userData} isLoading={isUsersLoading}/>}
+          element={<UserInfo users={userData} isLoading={isUsersLoading} />}
         />
 
         <Route path="sklad" element={<Sklad />}>
@@ -42,7 +48,12 @@ function App() {
             }
           />
           <Route path="desktop" element={<Desktop />} />
-          <Route path="monitors" element={<Monitors />} />
+          <Route
+            path="monitors"
+            element={
+              <Monitors monitorsData={monitorsData} userData={userData} />
+            }
+          />
         </Route>
       </Routes>
     </div>
