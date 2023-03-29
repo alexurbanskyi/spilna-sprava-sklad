@@ -18,14 +18,14 @@ function Users({ users, isLoading }) {
     setDeleteAddModal(true);
   }
 
-  let us = {
-    cardId: "34",
-    userName: "Вова Вова",
-    id: 3,
-  };
-  async function uppp() {
-    await updateUser({ ...us, userName: "UPDATE" });
-  }
+  // let us = {
+  //   cardId: "34",
+  //   userName: "Вова Вова",
+  //   id: 3,
+  // };
+  // async function uppp() {
+  //   await updateUser({ ...us, userName: "UPDATE" });
+  // }
   return (
     <>
       {isLoading ? (

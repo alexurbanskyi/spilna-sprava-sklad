@@ -14,16 +14,22 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function DeleteUserModal({ open, setOpen, userData }) {
-  const [deleteUser] = useDeleteUserMutation();
+  const [deleteUser, {isError}] = useDeleteUserMutation();
 
   const handleClose = () => {
     setOpen(false);
   };
-
+  
   async function deleteUserHandler() {
-    await deleteUser(userData.id);
-    toast.success("Працівника успішно видалено!")
-    setOpen(false);
+    
+    if (isError) {
+     console.log('ERRoR!')
+     return <><p>error</p></>
+    }
+      await deleteUser(userData.id);
+      toast.success("Працівника успішно видалено!")
+      setOpen(false);
+
   }
 
   return (

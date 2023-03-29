@@ -1,34 +1,75 @@
 {
   "users": [
     {
-      "cardId": "125674",
-      "userName": "Гоша",
+      "cardId": "1222",
+      "userName": "Урбанський Олександр",
+      "id": 2
+    }
+  ],
+  "desktops": [
+    {
+      "desktopNo": 11,
+      "videoCard": "GForce 4600",
+      "master": null,
+      "id": 1
+    }
+  ],
+  "monitors": [
+    {
+      "monitorNo": "3344",
+      "brand": "SONY",
+      "diagonal": "21",
+      "master": null,
+      "id": 1
+    },
+    {
+      "monitorNo": "123",
+      "brand": "SONY",
+      "diagonal": "21",
+      "master": null,
       "id": 2
     },
     {
-      "cardId": "45555122",
-      "userName": "Вова Вова",
+      "monitorNo": "233",
+      "brand": "SONY",
+      "diagonal": "22",
+      "master": null,
+      "id": 3
+    },
+    {
+      "monitorNo": "123",
+      "brand": "SAMSUNG",
+      "diagonal": "21",
+      "master": null,
       "id": 4
     },
     {
-      "cardId": "34533",
-      "userName": "Сан Санич",
-      "id": 5
-    }
-  ],
-  "desktops": [],
-  "monitors": [
-    {
-      "monitorId": 1525,
+      "monitorNo": "2323",
       "brand": "LG",
-      "diagonal": "19",
-      "master": null
+      "diagonal": "21",
+      "master": null,
+      "id": 5
     },
     {
-      "monitorId": 652,
+      "monitorNo": "",
+      "brand": "",
+      "diagonal": "",
+      "master": null,
+      "id": 6
+    },
+    {
+      "monitorNo": "234",
       "brand": "SONY",
       "diagonal": "21",
-      "master": "Перович"
+      "master": null,
+      "id": 7
+    },
+    {
+      "monitorNo": "123",
+      "brand": "SONY",
+      "diagonal": "21",
+      "master": null,
+      "id": 8
     }
   ]
 }

@@ -5,10 +5,6 @@ export const devicesApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/" }),
   tagTypes: ["desktop", "monitors"],
   endpoints: (build) => ({
-    // getDevices: build.query({
-    //   query: () => "devices",
-    //   providesTags: ["devices"],
-    // }),
     getDesktops: build.query({
       query: () => "/desktops",
       providesTags: ["desktops"],
@@ -41,4 +37,5 @@ export const {
   useGetDesktopsQuery,
   useAddDesktopMutation,
   useGetMonitorsQuery,
+  useAddMonitorMutation,
 } = devicesApi;

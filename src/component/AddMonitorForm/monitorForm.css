@@ -1,0 +1,28 @@
+.monitorForm {
+  background-color: azure;
+  padding: 20px;
+  border-radius: 5px;
+}
+.monitorForm_input_holder {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.monitorForm_button {
+  display: block;
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0 auto;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(182, 182, 182);
+}
+.monitorForm_input {
+  width: 200px;
+  text-align: center;
+  padding: 3px 0;
+}
+.activ_btn {
+  background-color: rgb(53, 139, 87);
+}

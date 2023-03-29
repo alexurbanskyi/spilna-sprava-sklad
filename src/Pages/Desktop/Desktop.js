@@ -3,7 +3,7 @@ import './desktop.css'
 
 function Desktop() {
   return (
-    <div className='layout'>
+    <div className='desktop'>
       DESKTOP
     </div>
   )
