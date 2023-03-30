@@ -11,7 +11,6 @@ export default function AddMonitorForm() {
 
   const isValid =
     Boolean(selectedBrand) && Boolean(selectedDiagonal) && Boolean(monitorNo);
-  console.log("isvalid -->", isValid);
 
   async function addHandler() {
     const data = {

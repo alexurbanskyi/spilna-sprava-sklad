@@ -4,6 +4,11 @@
       "cardId": "1222",
       "userName": "Урбанський Олександр",
       "id": 2
+    },
+    {
+      "cardId": "344",
+      "userName": "Лабанов Гриша",
+      "id": 3
     }
   ],
   "desktops": [
@@ -26,7 +31,7 @@
       "monitorNo": "123",
       "brand": "SONY",
       "diagonal": "21",
-      "master": null,
+      "master": "Шарко Володимир",
       "id": 2
     },
     {
@@ -44,32 +49,25 @@
       "id": 4
     },
     {
-      "monitorNo": "2323",
-      "brand": "LG",
-      "diagonal": "21",
-      "master": null,
-      "id": 5
-    },
-    {
-      "monitorNo": "",
-      "brand": "",
-      "diagonal": "",
-      "master": null,
-      "id": 6
-    },
-    {
-      "monitorNo": "234",
+      "monitorNo": "12",
       "brand": "SONY",
-      "diagonal": "21",
+      "diagonal": "19",
       "master": null,
-      "id": 7
+      "id": 9
     },
     {
       "monitorNo": "123",
-      "brand": "SONY",
-      "diagonal": "21",
+      "brand": "LG",
+      "diagonal": "19",
       "master": null,
-      "id": 8
+      "id": 10
+    },
+    {
+      "monitorNo": "666",
+      "brand": "LG",
+      "diagonal": "22",
+      "master": null,
+      "id": 11
     }
   ]
 }

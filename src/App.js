@@ -51,7 +51,7 @@ function App() {
           <Route
             path="monitors"
             element={
-              <Monitors />
+              <Monitors monitorsData={monitorsData}/>
             }
           />
         </Route>
