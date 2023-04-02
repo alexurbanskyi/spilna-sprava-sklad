@@ -3,17 +3,38 @@
     {
       "cardId": "234",
       "userName": "Вова Вова",
-      "id": 1
-    },
-    {
-      "cardId": "2345",
-      "userName": "Вова Вова",
-      "id": 2
+      "id": 1,
+      "master": "2",
+      "monitors": [
+        "11",
+        "156",
+        "2",
+        "111"
+      ]
     },
     {
       "cardId": "11",
       "userName": "Урбанський Олександр",
-      "id": 3
+      "id": 3,
+      "monitors": []
+    },
+    {
+      "cardId": "211",
+      "userName": "Урбанський Ярослав",
+      "id": 4,
+      "monitors": []
+    },
+    {
+      "cardId": "12",
+      "userName": "Куратов Павел",
+      "id": 5,
+      "monitors": [
+        "111",
+        "111",
+        "111",
+        "111",
+        "111"
+      ]
     }
   ],
   "desktops": [
@@ -29,21 +50,14 @@
       "monitorNo": "111",
       "brand": "LG",
       "diagonal": "22",
-      "master": "Урбанський Олександр",
+      "master": null,
       "id": 2
-    },
-    {
-      "monitorNo": "123",
-      "brand": "SONY",
-      "diagonal": "22",
-      "master": "Vova",
-      "id": 3
     },
     {
       "monitorNo": "2",
       "brand": "SAMSUNG",
       "diagonal": "21",
-      "master": "Урбанський Олександр",
+      "master": "Вова Вова",
       "id": 5
     },
     {
@@ -52,6 +66,13 @@
       "diagonal": "22",
       "master": "Вова Вова",
       "id": 6
+    },
+    {
+      "monitorNo": "11",
+      "brand": "SONY",
+      "diagonal": "21",
+      "master": "Вова Вова",
+      "id": 7
     }
   ]
 }

@@ -7,20 +7,29 @@ import {
 import ConfirmModal from "../../component/ConfirmModal/ConfirmModal";
 import { toast } from "react-toastify";
 import "./monitorInfo.css";
+import { useUpdateUserMutation } from "../../redux/usersApi";
 
 function MonitorInfo({ monitorsData, userData }) {
   const [openModal, setOpenModal] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [choosenMaster, setChoosenMaster] = useState("");
+  const [masterData, setMasterData] = useState(null)
   const params = useParams();
   const navigate = useNavigate();
   const [deleteMonitor] = useDeleteMonitorMutation();
   const [updateMonitorMaster] = useUpdateMonitorMasterMutation();
+  const [updateUser] = useUpdateUserMutation();
+
 
   // find monitor data {object}
   const [monitorData] = monitorsData.filter(
     (item) => item.monitorNo === params.monitor
   );
+
+  const [choosenMasterData] = userData.filter((user) => user.userName === choosenMaster)
+  console.log('find choosenMasterData -->', choosenMasterData)
+
+ 
 
   // select for all users
   function SelecrMaster() {
@@ -34,9 +43,6 @@ function MonitorInfo({ monitorsData, userData }) {
           <option value="" disabled>
             оберіть працівника
           </option>
-          {/* <option value="Vova">Vova</option>
-          <option value="Tom">Tom</option>
-          <option value="Bob">Bob</option> */}
           {
             userData.map((user) => <option value={user.userName}>{user.userName}</option>)
           }
@@ -56,15 +62,15 @@ function MonitorInfo({ monitorsData, userData }) {
 
   // function change master after select from list
   async function changeMaster() {
-    if (!changeMaster) {
-      setIsEditMode(true);
-    } else {
+   
       await updateMonitorMaster({ ...monitorData, master: choosenMaster });
+      await updateUser({...choosenMasterData, monitors: [...choosenMasterData.monitors, monitorData.monitorNo] })
       setIsEditMode(false);
       toast.success(
         `${choosenMaster} є власником монітору No: ${monitorData?.monitorNo}`
       );
-    }
+      navigate(-1)
+   
   }
 
   return (

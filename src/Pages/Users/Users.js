@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AddUserModal from "../../component/AddUserModal/AddUserModal";
+import Circle from "../../component/circle/Circle";
 import DeleteUserModal from "../../component/DeleteUserModal/DeleteUserModal";
 import Loader from "../../component/Loader/Loader";
 import { useUpdateUserMutation } from "../../redux/usersApi";
@@ -71,8 +72,9 @@ function Users({ users, isLoading }) {
             setOpen={setDeleteAddModal}
             userData={userdata}
           />
+          <Circle percent={45}/>
         </div>
-      )}
+      )} 
     </>
   );
 }
