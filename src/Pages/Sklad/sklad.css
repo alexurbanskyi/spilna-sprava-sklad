@@ -8,7 +8,8 @@
     flex-direction: column;
     background-color: rgb(63, 63, 63);
     justify-content: center;
-    padding: 0px 15px;    
+    padding: 0px 15px;  
+    width: 220px;
    
 }
 .side_bar a{

@@ -30,6 +30,23 @@ export const devicesApi = createApi({
       }),
       invalidatesTags: ["monitors"],
     }),
+    deleteMonitor: build.mutation({
+      query: (id) => ({
+        url: `/monitors/${id}`,
+        method: "DELETE",
+        body: id,
+      }),
+      invalidatesTags: ["monitors"],
+    }),
+    updateMonitorMaster: build.mutation({
+      query: (monitor) => ({
+        url: `/monitors/${monitor.id}`,
+        method: "PATCH",
+        body: monitor,
+      }),
+      invalidatesTags: ["monitors"],
+    }),
+    
   }),
 });
 
@@ -38,4 +55,6 @@ export const {
   useAddDesktopMutation,
   useGetMonitorsQuery,
   useAddMonitorMutation,
+  useDeleteMonitorMutation,
+  useUpdateMonitorMasterMutation,
 } = devicesApi;

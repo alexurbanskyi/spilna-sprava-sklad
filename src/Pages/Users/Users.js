@@ -26,6 +26,7 @@ function Users({ users, isLoading }) {
   // async function uppp() {
   //   await updateUser({ ...us, userName: "UPDATE" });
   // }
+
   return (
     <>
       {isLoading ? (
@@ -40,7 +41,9 @@ function Users({ users, isLoading }) {
                 {user.cardId} - {user.userName}
               </p>
               <div className="user_icons">
-                <Link to={`/${user.cardId}`} className="user_icon edit_icon ">&#x270E;</Link>
+                <Link to={`/${user.cardId}`} className="user_icon edit_icon ">
+                  &#x270E;
+                </Link>
                 <div
                   className="user_icon delete_icon"
                   onClick={() => deleteUserModal(user)}
@@ -57,6 +60,7 @@ function Users({ users, isLoading }) {
           >
             +
           </div>
+
           <AddUserModal
             open={openAddModa}
             setOpen={setOpenAddModal}

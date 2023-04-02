@@ -1,32 +1,10 @@
-.monitors{
-    padding: 10px;
-    background-color: rgb(202, 223, 225);
-    width: 100%;
+.monitors {
+  padding: 10px;
+  background-color: rgb(202, 223, 225);
+  width: 100%;
 }
-.monitors_title{
-    text-align: center;
-    font-size: 22px;
-    margin: 10px 0px;
-}
-
-/* for monitorItem */
-.monitorItem_info_wrapper{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    background-color: antiquewhite;
-    border-radius: 3px;
-    padding: 5px;
-    margin: 3px 0px;
-   
-    
-}
-.monitorItem_info{
-    font-size: 11px;
-    width: 200px;
-   
-}
-.monitorItem_info span{
-    font-size: 15px;
-    font-weight: bolder;
+.monitors_title {
+  text-align: center;
+  font-size: 22px;
+  margin: 10px 0px;
 }

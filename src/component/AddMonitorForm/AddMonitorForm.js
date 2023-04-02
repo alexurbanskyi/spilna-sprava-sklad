@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { useAddMonitorMutation } from "../../redux/devicesApi";
+import {
+  useAddMonitorMutation,
+  useGetMonitorsQuery,
+} from "../../redux/devicesApi";
+import { toast } from "react-toastify";
 import "./monitorForm.css";
 
 export default function AddMonitorForm() {
@@ -7,35 +11,41 @@ export default function AddMonitorForm() {
   const [selectedDiagonal, setSelectedDiagonal] = useState("");
   const [monitorNo, setMonitorNo] = useState("");
 
-  const [addMonitor] = useAddMonitorMutation();
+  const [addMonitor, { isError }] = useAddMonitorMutation();
+  const { data: monitorsData = [], isLoading: isMonitorsLoading } =
+    useGetMonitorsQuery();
 
   const isValid =
     Boolean(selectedBrand) && Boolean(selectedDiagonal) && Boolean(monitorNo);
 
-  async function addHandler() {
+  const isMonitorAdded = monitorsData.filter(
+    (item) => Number(monitorNo) === Number(item.monitorNo)
+  );
+
+  async function addMonitorHandler() {
     const data = {
       monitorNo: monitorNo,
       brand: selectedBrand,
       diagonal: selectedDiagonal,
       master: null,
     };
+
+    // if (isError){
+    //   console.log('NENENEN')
+    //   toast.error("Сталася помилки при роботі сервера!")
+    //   return
+    // }
+
+    if (isMonitorAdded.length) {
+      toast.error("Монітор з таким номером вже існує!");
+      return;
+    }
+
     await addMonitor(data);
     setSelectedBrand("");
     setMonitorNo("");
     setSelectedDiagonal("");
-    console.log("monitor data", data);
-  }
-
-  function handleBrandChange(event) {
-    setSelectedBrand(event.target.value);
-  }
-
-  function handleDiagonalChange(event) {
-    setSelectedDiagonal(event.target.value);
-  }
-
-  function handleMonitorNoChange(event) {
-    setMonitorNo(event.target.value);
+    toast.success("Монітор успішно додано!");
   }
 
   return (
@@ -47,7 +57,7 @@ export default function AddMonitorForm() {
             className="monitorForm_input"
             placeholder="No..."
             value={monitorNo}
-            onChange={(event) => handleMonitorNoChange(event)}
+            onChange={(event) => setMonitorNo(event.target.value)}
           />
         </div>
         <div>
@@ -55,7 +65,7 @@ export default function AddMonitorForm() {
           <select
             className="monitorForm_input"
             value={selectedBrand}
-            onChange={(event) => handleBrandChange(event)}
+            onChange={(event) => setSelectedBrand(event.target.value)}
           >
             <option value="" disabled>
               оберіть бренд
@@ -70,7 +80,7 @@ export default function AddMonitorForm() {
           <select
             className="monitorForm_input"
             value={selectedDiagonal}
-            onChange={(event) => handleDiagonalChange(event)}
+            onChange={(event) => setSelectedDiagonal(event.target.value)}
           >
             <option value="" disabled>
               оберіть диагональ
@@ -87,7 +97,7 @@ export default function AddMonitorForm() {
             ? "monitorForm_button"
             : ["monitorForm_button", "activ_btn"].join(" ")
         }
-        onClick={addHandler}
+        onClick={addMonitorHandler}
       >
         Додати монітор до списку
       </button>

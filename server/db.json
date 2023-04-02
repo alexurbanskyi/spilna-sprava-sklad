@@ -1,13 +1,18 @@
 {
   "users": [
     {
-      "cardId": "1222",
-      "userName": "Урбанський Олександр",
+      "cardId": "234",
+      "userName": "Вова Вова",
+      "id": 1
+    },
+    {
+      "cardId": "2345",
+      "userName": "Вова Вова",
       "id": 2
     },
     {
-      "cardId": "344",
-      "userName": "Лабанов Гриша",
+      "cardId": "11",
+      "userName": "Урбанський Олександр",
       "id": 3
     }
   ],
@@ -21,53 +26,32 @@
   ],
   "monitors": [
     {
-      "monitorNo": "3344",
-      "brand": "SONY",
-      "diagonal": "21",
-      "master": null,
-      "id": 1
-    },
-    {
-      "monitorNo": "123",
-      "brand": "SONY",
-      "diagonal": "21",
-      "master": "Шарко Володимир",
+      "monitorNo": "111",
+      "brand": "LG",
+      "diagonal": "22",
+      "master": "Урбанський Олександр",
       "id": 2
     },
     {
-      "monitorNo": "233",
+      "monitorNo": "123",
       "brand": "SONY",
       "diagonal": "22",
-      "master": null,
+      "master": "Vova",
       "id": 3
     },
     {
-      "monitorNo": "123",
+      "monitorNo": "2",
       "brand": "SAMSUNG",
       "diagonal": "21",
-      "master": null,
-      "id": 4
+      "master": "Урбанський Олександр",
+      "id": 5
     },
     {
-      "monitorNo": "12",
-      "brand": "SONY",
-      "diagonal": "19",
-      "master": null,
-      "id": 9
-    },
-    {
-      "monitorNo": "123",
-      "brand": "LG",
-      "diagonal": "19",
-      "master": null,
-      "id": 10
-    },
-    {
-      "monitorNo": "666",
+      "monitorNo": "156",
       "brand": "LG",
       "diagonal": "22",
-      "master": null,
-      "id": 11
+      "master": "Вова Вова",
+      "id": 6
     }
   ]
 }

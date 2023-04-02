@@ -7,13 +7,12 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useAddNewUserMutation } from "../../redux/usersApi";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 function AddUserModal({ open, setOpen, users }) {
   const [cardId, setCardId] = useState("");
   const [userName, setUserName] = useState("");
   const [addNewUser] = useAddNewUserMutation();
-  
 
   let isValid = Boolean(cardId) && Boolean(userName);
 
@@ -22,27 +21,25 @@ function AddUserModal({ open, setOpen, users }) {
     setCardId("");
     setUserName("");
   };
-  
+
   async function handleAddUser() {
     const data = { cardId: cardId, userName: userName };
     const isUserAdded = users.filter(
       (user) => Number(user.cardId) === Number(cardId)
     );
     if (isUserAdded.length) {
-      toast.error("Працівник з таким номером Сard Id вже існує!")
+      toast.error("Працівник з таким номером Сard Id вже існує!");
     } else {
       await addNewUser(data);
-      toast.success("Працівника успішно додано!")
+      toast.success("Працівника успішно додано!");
       setOpen(false);
       setCardId("");
       setUserName("");
     }
   }
- 
- 
+
   return (
     <div>
-
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Додати працівника</DialogTitle>
         <DialogContent>
@@ -79,7 +76,6 @@ function AddUserModal({ open, setOpen, users }) {
           </Button>
         </DialogActions>
       </Dialog>
-
     </div>
   );
 }

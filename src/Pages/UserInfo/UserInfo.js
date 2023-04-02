@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useUpdateUserMutation } from "../../redux/usersApi";
-import {useNavigate} from 'react-router-dom'
 
 function UserInfo({ users }) {
   const params = useParams();
@@ -12,8 +11,6 @@ function UserInfo({ users }) {
   const [updateUser] = useUpdateUserMutation()
   const userData = users.find((item) => item.cardId === params.userid);
 
-  // console.log('usersData -->', users)
-  // console.log('userData -->', userData)
   return (
     <div>
       {!edit ? (

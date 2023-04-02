@@ -6,26 +6,27 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
-import { useDeleteUserMutation } from "../../redux/usersApi";
-import { toast } from 'react-toastify';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-function DeleteUserModal({ open, setOpen, userData }) {
+// ----- props -----
+// open, setOpen - function for open/close modal
+// modalAction - function that is executed when we press button CONFIRM
+// modalTitle - text for title of modal
+// modalText - text for content of modal
 
-  const [deleteUser, {isError}] = useDeleteUserMutation();
-
+export default function ConfirmModal({
+  open,
+  setOpen,
+  modalAction,
+  modalTitle = "",
+  modalText = "",
+}) {
   const handleClose = () => {
     setOpen(false);
   };
-  
-  async function deleteUserHandler() {
-      await deleteUser(userData.id);
-      toast.success("Працівника успішно видалено!")
-      setOpen(false);
-  }
 
   return (
     <div>
@@ -36,20 +37,19 @@ function DeleteUserModal({ open, setOpen, userData }) {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{`Видалити працівника  - ${userData?.userName}`}</DialogTitle>
+        <DialogTitle>{modalTitle}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Усі данні про працівника буде втрачено!
+            {modalText}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Відмінити</Button>
-          <Button onClick={deleteUserHandler} color="error">
-            Видалити
+          <Button onClick={modalAction} color="error">
+            Підтвердити
           </Button>
         </DialogActions>
       </Dialog>
     </div>
   );
 }
-export default DeleteUserModal;

@@ -13,6 +13,7 @@ import {
 import AllDevices from "./Pages/AllDevices/AllDevices";
 import Monitors from "./Pages/Monitors/Monitors";
 import UserInfo from "./Pages/UserInfo/UserInfo";
+import MonitorInfo from "./Pages/MonitorInfo/MonitorInfo";
 
 function App() {
   const { data: userData = [], isLoading: isUsersLoading } = useGetUsersQuery();
@@ -20,9 +21,6 @@ function App() {
     useGetDesktopsQuery();
   const { data: monitorsData = [], isLoading: isMonitorsLoading } =
     useGetMonitorsQuery();
-
-  console.log("desktopData -->", desktopData);
-  //console.log('isDevicesDataLoasing -->', isDevicesDataLoading)
 
   return (
     <div className="app">
@@ -50,9 +48,11 @@ function App() {
           <Route path="desktop" element={<Desktop />} />
           <Route
             path="monitors"
-            element={
-              <Monitors monitorsData={monitorsData}/>
-            }
+            element={<Monitors monitorsData={monitorsData} />}
+          />
+          <Route
+            path="monitors/:monitor"
+            element={<MonitorInfo monitorsData={monitorsData} userData={userData} />}
           />
         </Route>
       </Routes>
