@@ -3,14 +3,18 @@ import MonitorItem from "../../component/MonitorItem/MonitorItem";
 import AddMonitorForm from "../../component/AddMonitorForm/AddMonitorForm";
 import "./monitors.css";
 
-function Monitors({ monitorsData }) {
-
+function Monitors({ monitorsData, userData }) {
   return (
     <div className="monitors">
       <AddMonitorForm />
       <div className="monitors_title">Список Моніторів</div>
       {monitorsData.map((item) => (
-        <MonitorItem key={item.monitorNo} monitor={item} monitorsData={monitorsData} />
+        <MonitorItem
+          key={item.monitorNo}
+          monitor={item}
+          monitorsData={monitorsData}
+          userData={userData}
+        />
       ))}
     </div>
   );

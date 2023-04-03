@@ -4,13 +4,27 @@ import ConfirmModal from "../ConfirmModal/ConfirmModal";
 import { useDeleteMonitorMutation } from "../../redux/devicesApi";
 import { toast } from "react-toastify";
 import "./monitorItem.css";
+import { useUpdateUserMutation } from "../../redux/usersApi";
 
-function MonitorItem({ monitor }) {
+function MonitorItem({ monitor, userData, monitorData }) {
   const [openModal, setOpenModal] = useState(false);
   const [deleteMonitor] = useDeleteMonitorMutation();
+  const [updateUser] = useUpdateUserMutation();
 
   async function deleteMonitorHandler() {
     await deleteMonitor(monitor?.id);
+    if (monitor?.master) {
+      const [userMasterDataMonitor] = userData.filter(
+        (item) => item?.userName === monitor?.master
+      );
+      console.log("KUKU! -->", userMasterDataMonitor);
+      await updateUser({
+        ...userMasterDataMonitor,
+        monitors: userMasterDataMonitor?.monitors?.filter(
+          (i) => i !== monitor?.monitorNo
+        ),
+      });
+    }
     toast.success(`Монітор  No: ${monitor?.monitorNo} успішно видалено!`);
   }
 
@@ -54,7 +68,11 @@ function MonitorItem({ monitor }) {
         setOpen={setOpenModal}
         modalAction={deleteMonitorHandler}
         modalTitle={"Видалити монітор"}
-        modalText={ !monitor?.master ? "Дана операція видалить даний монітор з загального списку" : `Зверніть УВАГУ! Монітор закріплено за прівником. Даний монітор буде видалений із списку пристроїв, що використовуються працівником`}
+        modalText={
+          !monitor?.master
+            ? "Дана операція видалить даний монітор з загального списку"
+            : `Зверніть УВАГУ! Монітор закріплено за прівником. Даний монітор буде видалений із списку пристроїв, що використовуються працівником`
+        }
       />
     </div>
   );

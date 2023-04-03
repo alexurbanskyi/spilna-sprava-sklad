@@ -13,23 +13,30 @@ function MonitorInfo({ monitorsData, userData }) {
   const [openModal, setOpenModal] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [choosenMaster, setChoosenMaster] = useState("");
-  const [masterData, setMasterData] = useState(null)
+  const [masterData, setMasterData] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
   const [deleteMonitor] = useDeleteMonitorMutation();
   const [updateMonitorMaster] = useUpdateMonitorMasterMutation();
   const [updateUser] = useUpdateUserMutation();
 
-
   // find monitor data {object}
   const [monitorData] = monitorsData.filter(
     (item) => item.monitorNo === params.monitor
   );
 
-  const [choosenMasterData] = userData.filter((user) => user.userName === choosenMaster)
-  console.log('find choosenMasterData -->', choosenMasterData)
+  // if user has monitor
+  let userMasterDataMonitor = {};
 
- 
+  if (monitorData?.master?.length) {
+    [userMasterDataMonitor] = userData.filter(
+      (item) => item?.userName === monitorData?.master
+    );
+  }
+
+  const [choosenMasterData] = userData.filter(
+    (user) => user.userName === choosenMaster
+  );
 
   // select for all users
   function SelecrMaster() {
@@ -43,9 +50,11 @@ function MonitorInfo({ monitorsData, userData }) {
           <option value="" disabled>
             оберіть працівника
           </option>
-          {
-            userData.map((user) => <option value={user.userName}>{user.userName}</option>)
-          }
+          {userData.map((user) => (
+            <option key={user.userNo} value={user.userName}>
+              {user.userName}
+            </option>
+          ))}
         </select>
       </>
     );
@@ -54,6 +63,12 @@ function MonitorInfo({ monitorsData, userData }) {
   // function delete master if monitor has master
   async function deleteMasterHandler() {
     await updateMonitorMaster({ ...monitorData, master: null });
+    await updateUser({
+      ...userMasterDataMonitor,
+      monitors: userMasterDataMonitor?.monitors?.filter(
+        (i) => i !== monitorData?.monitorNo
+      ),
+    });
     toast.success(
       `Монітор No: ${monitorData?.monitorNo} успішно додано статус "ВІЛЬНИЙ"`
     );
@@ -62,15 +77,26 @@ function MonitorInfo({ monitorsData, userData }) {
 
   // function change master after select from list
   async function changeMaster() {
-   
-      await updateMonitorMaster({ ...monitorData, master: choosenMaster });
-      await updateUser({...choosenMasterData, monitors: [...choosenMasterData.monitors, monitorData.monitorNo] })
-      setIsEditMode(false);
-      toast.success(
-        `${choosenMaster} є власником монітору No: ${monitorData?.monitorNo}`
-      );
-      navigate(-1)
-   
+    await updateMonitorMaster({ ...monitorData, master: choosenMaster });
+
+    //
+    await updateUser({
+      ...userMasterDataMonitor,
+      monitors: userMasterDataMonitor?.monitors?.filter(
+        (i) => i !== monitorData?.monitorNo
+      ),
+    });
+    //
+
+    await updateUser({
+      ...choosenMasterData,
+      monitors: [...choosenMasterData.monitors, monitorData.monitorNo],
+    });
+    setIsEditMode(false);
+    toast.success(
+      `${choosenMaster} є власником монітору No: ${monitorData?.monitorNo}`
+    );
+    navigate(-1);
   }
 
   return (

@@ -48,11 +48,15 @@ function App() {
           <Route path="desktop" element={<Desktop />} />
           <Route
             path="monitors"
-            element={<Monitors monitorsData={monitorsData} />}
+            element={
+              <Monitors monitorsData={monitorsData} userData={userData} />
+            }
           />
           <Route
             path="monitors/:monitor"
-            element={<MonitorInfo monitorsData={monitorsData} userData={userData} />}
+            element={
+              <MonitorInfo monitorsData={monitorsData} userData={userData} />
+            }
           />
         </Route>
       </Routes>
