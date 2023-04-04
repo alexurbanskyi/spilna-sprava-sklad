@@ -8,7 +8,7 @@ import { useUpdateUserMutation } from "../../redux/usersApi";
 
 import "./users.css";
 
-function Users({ users, isLoading }) {
+function Users({ usersData, monitorsData, isLoading }) {
   const [openAddModa, setOpenAddModal] = useState(false);
   const [openDeleteModa, setDeleteAddModal] = useState(false);
   const [userdata, setUserData] = useState(null);
@@ -18,6 +18,7 @@ function Users({ users, isLoading }) {
     setUserData(data);
     setDeleteAddModal(true);
   }
+  
 
   // let us = {
   //   cardId: "34",
@@ -35,7 +36,7 @@ function Users({ users, isLoading }) {
       ) : (
         <div className="users">
           <div className="users_title">Список працівників:</div>
-          {users.map((user) => (
+          {usersData.map((user) => (
             <div className="users_item" key={user.cardId}>
               <p className="user_name">
                 <span>card ID: </span>
@@ -65,12 +66,13 @@ function Users({ users, isLoading }) {
           <AddUserModal
             open={openAddModa}
             setOpen={setOpenAddModal}
-            users={users}
+            users={usersData}
           />
           <DeleteUserModal
             open={openDeleteModa}
             setOpen={setDeleteAddModal}
             userData={userdata}
+            monitorsData={monitorsData}
           />
           <Circle percent={45}/>
         </div>

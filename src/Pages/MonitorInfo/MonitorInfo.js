@@ -25,7 +25,7 @@ function MonitorInfo({ monitorsData, userData }) {
     (item) => item.monitorNo === params.monitor
   );
 
-  // if user has monitor
+  // if monitor has master than find info about this user
   let userMasterDataMonitor = {};
   
   if (monitorData?.master?.length) {
@@ -33,11 +33,10 @@ function MonitorInfo({ monitorsData, userData }) {
       (item) => item?.userName === monitorData?.master
       );
     }
-    console.log('userMasterDataMonitor -->', userMasterDataMonitor)
-  // if monitor has master - list filtering and remove user from the list
 
+  // if monitor has master - list filtering and remove user from the list
   const userForSelect = userData.filter((item) => item.userName !== userMasterDataMonitor?.userName)
-  //console.log('userForSelect --->', userForSelect)
+
 
   const [choosenMasterData] = userData.filter(
     (user) => user.userName === choosenMaster
@@ -60,9 +59,6 @@ function MonitorInfo({ monitorsData, userData }) {
               {user.userName}
             </option>
           ))}
-          {/* {
-            userData.map((user) => <option key={user.cardId} value={user.userName}>{user.userName}</option>)
-          } */}
         </select>
       </>
     );
@@ -87,7 +83,7 @@ function MonitorInfo({ monitorsData, userData }) {
   async function changeMaster() {
     await updateMonitorMaster({ ...monitorData, master: choosenMaster });
 
-    //
+    // if monitor has master and we change it --> delete monitor from old master`s list
     if (Object.keys(userMasterDataMonitor).length !== 0){
 
       await updateUser({

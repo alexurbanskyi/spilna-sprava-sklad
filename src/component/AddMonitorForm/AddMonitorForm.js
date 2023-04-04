@@ -57,6 +57,7 @@ export default function AddMonitorForm() {
             className="monitorForm_input"
             placeholder="No..."
             value={monitorNo}
+            type="number"
             onChange={(event) => setMonitorNo(event.target.value)}
           />
         </div>

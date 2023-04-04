@@ -22,13 +22,14 @@ function App() {
   const { data: monitorsData = [], isLoading: isMonitorsLoading } =
     useGetMonitorsQuery();
 
+   
   return (
     <div className="app">
       <Header />
       <Routes>
         <Route
           path="/"
-          element={<Users users={userData} isLoading={isUsersLoading} />}
+          element={<Users usersData={userData} isLoading={isUsersLoading} monitorsData={monitorsData} />}
         />
         <Route
           path="/:userid"

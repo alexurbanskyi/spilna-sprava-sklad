@@ -8,20 +8,28 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { useDeleteUserMutation } from "../../redux/usersApi";
 import { toast } from 'react-toastify';
+import { useUpdateMonitorMasterMutation } from "../../redux/devicesApi";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-function DeleteUserModal({ open, setOpen, userData }) {
+function DeleteUserModal({ open, setOpen, userData, monitorsData }) {
 
   const [deleteUser, {isError}] = useDeleteUserMutation();
+  const [updateMonitorMaster] =useUpdateMonitorMasterMutation();
 
   const handleClose = () => {
     setOpen(false);
   };
-  
+
   async function deleteUserHandler() {
+    if (userData.monitors.length !== 0) {
+      for (const item of userData.monitors) {
+        const [monitor] = monitorsData.filter((i) => i.monitorNo === item);
+        await updateMonitorMaster({ ...monitor, master: null });
+      }
+    }
       await deleteUser(userData.id);
       toast.success("Працівника успішно видалено!")
       setOpen(false);

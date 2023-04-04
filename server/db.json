@@ -1,33 +1,34 @@
 {
-  "users": [
-    {
-      "cardId": "10001",
-      "userName": "Alex",
-      "monitors": [],
-      "id": 1
-    },
-    {
-      "cardId": "10002",
-      "userName": "Roman",
-      "monitors": [],
-      "id": 2
-    }
-  ],
+  "users": [],
   "desktops": [],
   "monitors": [
     {
-      "monitorNo": "123",
+      "monitorNo": "2001",
       "brand": "LG",
       "diagonal": "19",
       "master": null,
       "id": 1
     },
     {
-      "monitorNo": "456",
+      "monitorNo": "2002",
       "brand": "SONY",
       "diagonal": "21",
       "master": null,
       "id": 2
+    },
+    {
+      "monitorNo": "2003",
+      "brand": "SAMSUNG",
+      "diagonal": "22",
+      "master": null,
+      "id": 3
+    },
+    {
+      "monitorNo": "445",
+      "brand": "LG",
+      "diagonal": "19",
+      "master": null,
+      "id": 4
     }
   ]
 }
