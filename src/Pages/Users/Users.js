@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AddUserModal from "../../component/AddUserModal/AddUserModal";
-import Circle from "../../component/circle/Circle";
 import DeleteUserModal from "../../component/DeleteUserModal/DeleteUserModal";
 import Loader from "../../component/Loader/Loader";
 import { useUpdateUserMutation } from "../../redux/usersApi";
@@ -19,18 +18,8 @@ function Users({ usersData, monitorsData, isLoading }) {
     setDeleteAddModal(true);
   }
   
-
-  // let us = {
-  //   cardId: "34",
-  //   userName: "Вова Вова",
-  //   id: 3,
-  // };
-  // async function uppp() {
-  //   await updateUser({ ...us, userName: "UPDATE" });
-  // }
-
   return (
-    <>
+    <div>
       {isLoading ? (
         <Loader />
       ) : (
@@ -55,7 +44,6 @@ function Users({ usersData, monitorsData, isLoading }) {
               </div>
             </div>
           ))}
-          {/* <button onClick={uppp}>update</button> */}
           <div
             className="user_add_button"
             onClick={() => setOpenAddModal(true)}
@@ -74,10 +62,10 @@ function Users({ usersData, monitorsData, isLoading }) {
             userData={userdata}
             monitorsData={monitorsData}
           />
-          <Circle percent={45}/>
+          {/* <Circle percent={45}/> */}
         </div>
       )} 
-    </>
+    </div>
   );
 }
 

@@ -1,3 +1,41 @@
 .all_devices{
     width: 100%;
 }
+.deviceItem{
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    background-color: antiquewhite;
+}
+.deviceItem_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.deviceItem_info_holder{
+    padding: 10px 0;
+    text-align: end;
+}
+.all_devices_title{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 10px 0 20px 0;
+}
+.deviceItem_icon{
+    font-size: 60px;
+}
+.deviceItem_info_title{
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 0;
+}
+.deviceItem_info_title span{
+    font-size: 20px;
+}
