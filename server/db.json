@@ -1,37 +1,33 @@
 {
   "users": [
     {
-      "cardId": "234",
-      "userName": "Вова Вова",
-      "id": 1,
-      "monitors": []
+      "cardId": "10001",
+      "userName": "Alex",
+      "monitors": [],
+      "id": 1
     },
     {
-      "cardId": "11",
-      "userName": "Урбанський Олександр",
-      "id": 3,
-      "monitors": []
-    },
-    {
-      "cardId": "211",
-      "userName": "Урбанський Ярослав",
-      "id": 4,
-      "monitors": []
-    },
-    {
-      "cardId": "12",
-      "userName": "Куратов Павел",
-      "id": 5,
-      "monitors": []
+      "cardId": "10002",
+      "userName": "Roman",
+      "monitors": [],
+      "id": 2
     }
   ],
-  "desktops": [
+  "desktops": [],
+  "monitors": [
     {
-      "desktopNo": 11,
-      "videoCard": "GForce 4600",
+      "monitorNo": "123",
+      "brand": "LG",
+      "diagonal": "19",
       "master": null,
       "id": 1
+    },
+    {
+      "monitorNo": "456",
+      "brand": "SONY",
+      "diagonal": "21",
+      "master": null,
+      "id": 2
     }
-  ],
-  "monitors": []
+  ]
 }

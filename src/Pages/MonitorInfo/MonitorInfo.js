@@ -27,12 +27,17 @@ function MonitorInfo({ monitorsData, userData }) {
 
   // if user has monitor
   let userMasterDataMonitor = {};
-
+  
   if (monitorData?.master?.length) {
     [userMasterDataMonitor] = userData.filter(
       (item) => item?.userName === monitorData?.master
-    );
-  }
+      );
+    }
+    console.log('userMasterDataMonitor -->', userMasterDataMonitor)
+  // if monitor has master - list filtering and remove user from the list
+
+  const userForSelect = userData.filter((item) => item.userName !== userMasterDataMonitor?.userName)
+  //console.log('userForSelect --->', userForSelect)
 
   const [choosenMasterData] = userData.filter(
     (user) => user.userName === choosenMaster
@@ -50,11 +55,14 @@ function MonitorInfo({ monitorsData, userData }) {
           <option value="" disabled>
             оберіть працівника
           </option>
-          {userData.map((user) => (
-            <option key={user.userNo} value={user.userName}>
+          {userForSelect.map((user) => (
+            <option key={user.cardId} value={user.userName}>
               {user.userName}
             </option>
           ))}
+          {/* {
+            userData.map((user) => <option key={user.cardId} value={user.userName}>{user.userName}</option>)
+          } */}
         </select>
       </>
     );
@@ -80,18 +88,22 @@ function MonitorInfo({ monitorsData, userData }) {
     await updateMonitorMaster({ ...monitorData, master: choosenMaster });
 
     //
-    await updateUser({
-      ...userMasterDataMonitor,
-      monitors: userMasterDataMonitor?.monitors?.filter(
-        (i) => i !== monitorData?.monitorNo
-      ),
-    });
+    if (Object.keys(userMasterDataMonitor).length !== 0){
+
+      await updateUser({
+        ...userMasterDataMonitor,
+        monitors: userMasterDataMonitor?.monitors?.filter(
+          (i) => i !== monitorData?.monitorNo
+        ),
+      });
+    }
     //
 
     await updateUser({
       ...choosenMasterData,
       monitors: [...choosenMasterData.monitors, monitorData.monitorNo],
     });
+
     setIsEditMode(false);
     toast.success(
       `${choosenMaster} є власником монітору No: ${monitorData?.monitorNo}`
