@@ -1,6 +1,7 @@
 .monitorInfo{
     width: 100%;
     padding: 20px 0;
+    background-color: rgb(147, 200, 156);
 }
 .monitorInfo_title{
     text-align: center;

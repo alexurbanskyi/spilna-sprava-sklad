@@ -6,8 +6,8 @@ function Sklad() {
   return (
     <div className="sklad">
       <div className="side_bar">
-        <Link to="desktop">Cистемний блок</Link>
-        <Link to="monitors">Монітор</Link>
+        <Link to="monitors">Монітори</Link>
+        <Link to="chairs">Стільці</Link>
       </div>
       <Outlet />
     </div>

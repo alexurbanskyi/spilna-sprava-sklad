@@ -1,0 +1,10 @@
+.chairs {
+  padding: 10px;
+  background-color: rgb(202, 225, 215);
+  width: 100%;
+}
+.chairs_title {
+  text-align: center;
+  font-size: 22px;
+  margin: 10px 0px;
+}

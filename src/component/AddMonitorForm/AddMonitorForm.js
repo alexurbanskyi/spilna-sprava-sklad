@@ -30,12 +30,10 @@ export default function AddMonitorForm() {
       master: null,
     };
 
-    // if (isError){
-    //   console.log('NENENEN')
-    //   toast.error("Сталася помилки при роботі сервера!")
-    //   return
-    // }
-
+    // monitor will not add to list if all filds don`t feel
+    if (!isValid){return}
+    
+    // show error if enter monitor with this number already exists
     if (isMonitorAdded.length) {
       toast.error("Монітор з таким номером вже існує!");
       return;

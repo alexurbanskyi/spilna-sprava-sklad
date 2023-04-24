@@ -9,27 +9,38 @@ import Slide from "@mui/material/Slide";
 import { useDeleteUserMutation } from "../../redux/usersApi";
 import { toast } from 'react-toastify';
 import { useUpdateMonitorMasterMutation } from "../../redux/devicesApi";
+import { useUpdateChairMasterMutation } from "../../redux/chairApi";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-function DeleteUserModal({ open, setOpen, userData, monitorsData }) {
+function DeleteUserModal({ open, setOpen, userData, monitorsData, chairsData }) {
 
   const [deleteUser, {isError}] = useDeleteUserMutation();
   const [updateMonitorMaster] =useUpdateMonitorMasterMutation();
+  const [updateChairMaster] = useUpdateChairMasterMutation();
 
   const handleClose = () => {
     setOpen(false);
   };
 
   async function deleteUserHandler() {
-    if (userData.monitors.length !== 0) {
+
+    if (userData?.monitors?.length !== 0) {
       for (const item of userData.monitors) {
         const [monitor] = monitorsData.filter((i) => i.monitorNo === item);
         await updateMonitorMaster({ ...monitor, master: null });
       }
     }
+
+    if (chairsData?.chairs?.length !== 0) {
+      for (const item of userData.chairs) {
+        const [chair] = chairsData.filter((i) => i.chairNo === item);
+        await updateChairMaster({ ...chair, master: null });
+      }
+    }
+
       await deleteUser(userData.id);
       toast.success("Працівника успішно видалено!")
       setOpen(false);

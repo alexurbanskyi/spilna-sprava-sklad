@@ -7,7 +7,8 @@ import { useUpdateUserMutation } from "../../redux/usersApi";
 
 import "./users.css";
 
-function Users({ usersData, monitorsData, isLoading }) {
+function Users({ usersData, monitorsData, chairsData, isLoading }) {
+
   const [openAddModa, setOpenAddModal] = useState(false);
   const [openDeleteModa, setDeleteAddModal] = useState(false);
   const [userdata, setUserData] = useState(null);
@@ -61,8 +62,8 @@ function Users({ usersData, monitorsData, isLoading }) {
             setOpen={setDeleteAddModal}
             userData={userdata}
             monitorsData={monitorsData}
+            chairsData={chairsData}
           />
-          {/* <Circle percent={45}/> */}
         </div>
       )} 
     </div>

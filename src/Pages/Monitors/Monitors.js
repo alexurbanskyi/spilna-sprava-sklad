@@ -9,12 +9,7 @@ function Monitors({ monitorsData, userData }) {
       <AddMonitorForm />
       <div className="monitors_title">Список Моніторів</div>
       {monitorsData.map((item) => (
-        <MonitorItem
-          key={item.monitorNo}
-          monitor={item}
-          monitorsData={monitorsData}
-          userData={userData}
-        />
+        <MonitorItem key={item.monitorNo} monitor={item} userData={userData} />
       ))}
     </div>
   );

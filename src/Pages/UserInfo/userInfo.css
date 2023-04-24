@@ -1,0 +1,70 @@
+.user_info{
+    padding: 20px;
+}
+.user_info_name{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+.user_info_device{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    margin: 10px auto;
+    padding: 15px;
+    background-color: rgb(202, 223, 225);
+    border-radius: 10px;
+}
+.device_list{
+}
+.device_list_item{
+    font-size: 12px;
+    font-weight: bold;
+   
+}
+.device_list_item span{
+    font-size: 20px;
+}
+.device_icon_holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: azure;
+    border-radius: 5px;
+}
+.user_card{
+    background-color: antiquewhite;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 7px;
+    border-radius: 5px;
+    
+}
+.user_card span{
+    font-size: 17px;
+}
+.device_icon{
+    font-size: 40px;
+}
+.user_monitor_list{
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+.user_monitor_list_item{
+    font-size: 12px;
+    font-weight: bold;
+    width: 200px;
+    margin: 5px 0;
+    padding: 5px;
+    text-align: center;
+}
+.user_monitor_list_item span{
+    font-size: 17px;
+}

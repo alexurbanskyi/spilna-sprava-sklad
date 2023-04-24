@@ -1,0 +1,25 @@
+.chair_form {
+    display: flex;
+    justify-content: space-around;
+  padding: 20px;
+  background-color: azure;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.chair_form_input {
+  width: 200px;
+  text-align: center;
+  padding: 3px 0;
+}
+.chair_form_btn {
+  display: block;
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(182, 182, 182);
+}
+.activ_btn {
+    background-color: rgb(53, 139, 87);
+  }

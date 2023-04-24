@@ -1,34 +1,73 @@
 {
   "users": [],
-  "desktops": [],
   "monitors": [
     {
-      "monitorNo": "2001",
-      "brand": "LG",
-      "diagonal": "19",
+      "monitorNo": "110023",
+      "brand": "SAMSUNG",
+      "diagonal": "22",
       "master": null,
       "id": 1
     },
     {
-      "monitorNo": "2002",
-      "brand": "SONY",
-      "diagonal": "21",
+      "monitorNo": "110022",
+      "brand": "LG",
+      "diagonal": "19",
       "master": null,
       "id": 2
     },
     {
-      "monitorNo": "2003",
+      "monitorNo": "110001",
       "brand": "SAMSUNG",
-      "diagonal": "22",
+      "diagonal": "19",
       "master": null,
       "id": 3
     },
     {
-      "monitorNo": "445",
-      "brand": "LG",
-      "diagonal": "19",
+      "monitorNo": "110002",
+      "brand": "SONY",
+      "diagonal": "22",
       "master": null,
       "id": 4
+    },
+    {
+      "monitorNo": "110003",
+      "brand": "LG",
+      "diagonal": "22",
+      "master": null,
+      "id": 5
     }
-  ]
+  ],
+  "chairs": [
+    {
+      "chairNo": "220033",
+      "master": null,
+      "id": 1
+    },
+    {
+      "chairNo": "220022",
+      "master": null,
+      "id": 2
+    },
+    {
+      "chairNo": "220001",
+      "master": null,
+      "id": 3
+    },
+    {
+      "chairNo": "220003",
+      "master": null,
+      "id": 4
+    },
+    {
+      "chairNo": "220004",
+      "master": null,
+      "id": 5
+    },
+    {
+      "chairNo": "220034",
+      "master": null,
+      "id": 6
+    }
+  ],
+  "desktops": []
 }

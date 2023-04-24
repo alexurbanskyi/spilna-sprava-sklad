@@ -1,0 +1,40 @@
+.chairInfo{
+    background-color: rgb(147, 200, 156);
+    width: 100%;
+    padding: 20px 0px;
+}
+.chairInfo_title{
+    text-align: center;
+    font-size: 12px;
+    margin: 10px 0;
+}
+.chairInfo_title span{
+    font-size: 25px;
+    font-weight: bold;
+}
+.chairInfo_master{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+}
+.chairInfo_master_title{
+    font-size: 12px;
+}
+.chairInfo_master_name{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: antiquewhite;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+.chair_btn_holder{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+}

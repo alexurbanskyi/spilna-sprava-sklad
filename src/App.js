@@ -14,6 +14,9 @@ import AllDevices from "./Pages/AllDevices/AllDevices";
 import Monitors from "./Pages/Monitors/Monitors";
 import UserInfo from "./Pages/UserInfo/UserInfo";
 import MonitorInfo from "./Pages/MonitorInfo/MonitorInfo";
+import Chairs from "./Pages/Chairs/Chairs";
+import { useGetChairsQuery } from "./redux/chairApi";
+import ChairInfo from "./Pages/ChairInfo/ChairInfo";
 
 function App() {
   const { data: userData = [], isLoading: isUsersLoading } = useGetUsersQuery();
@@ -21,6 +24,7 @@ function App() {
     useGetDesktopsQuery();
   const { data: monitorsData = [], isLoading: isMonitorsLoading } =
     useGetMonitorsQuery();
+  const { data: chairsData = [] } = useGetChairsQuery();
 
   return (
     <div className="app">
@@ -33,17 +37,24 @@ function App() {
               usersData={userData}
               isLoading={isUsersLoading}
               monitorsData={monitorsData}
+              chairsData={chairsData}
             />
           }
         />
         <Route
           path="/:userid"
-          element={<UserInfo users={userData} isLoading={isUsersLoading} />}
+          element={
+            <UserInfo
+              users={userData}
+              isLoading={isUsersLoading}
+              monitorsData={monitorsData}
+              chairsData={chairsData}
+            />
+          }
         />
 
         <Route path="sklad" element={<Sklad />}>
-          <Route index element={<AllDevices monitorsData={monitorsData} />} />
-          <Route path="desktop" element={<Desktop />} />
+          <Route index element={<AllDevices monitorsData={monitorsData} chairsData={chairsData}/>} />
           <Route
             path="monitors"
             element={
@@ -54,6 +65,13 @@ function App() {
             path="monitors/:monitor"
             element={
               <MonitorInfo monitorsData={monitorsData} userData={userData} />
+            }
+          />
+          <Route path="chairs" element={<Chairs chairsData={chairsData} userData={userData}/>} />
+          <Route
+            path="chairs/:chair"
+            element={
+              <ChairInfo chairsData={chairsData} userData={userData} />
             }
           />
         </Route>

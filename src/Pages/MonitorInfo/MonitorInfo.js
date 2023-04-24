@@ -10,6 +10,7 @@ import "./monitorInfo.css";
 import { useUpdateUserMutation } from "../../redux/usersApi";
 
 function MonitorInfo({ monitorsData, userData }) {
+
   const [openModal, setOpenModal] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [choosenMaster, setChoosenMaster] = useState("");
@@ -24,6 +25,7 @@ function MonitorInfo({ monitorsData, userData }) {
   const [monitorData] = monitorsData.filter(
     (item) => item.monitorNo === params.monitor
   );
+  console.log('monitorData -->', monitorData)
 
   // if monitor has master than find info about this user
   let userMasterDataMonitor = {};
@@ -33,6 +35,7 @@ function MonitorInfo({ monitorsData, userData }) {
       (item) => item?.userName === monitorData?.master
       );
     }
+     console.log('userMasterDataMonitor -->', userMasterDataMonitor)
 
   // if monitor has master - list filtering and remove user from the list
   const userForSelect = userData.filter((item) => item.userName !== userMasterDataMonitor?.userName)
@@ -41,9 +44,9 @@ function MonitorInfo({ monitorsData, userData }) {
   const [choosenMasterData] = userData.filter(
     (user) => user.userName === choosenMaster
   );
-
+  console.log('choosenMasterData -->', choosenMasterData)
   // select for all users
-  function SelecrMaster() {
+  function SelectMaster() {
     return (
       <>
         <select
@@ -125,7 +128,7 @@ function MonitorInfo({ monitorsData, userData }) {
           {monitorData?.master && !isEditMode ? (
             <span>{monitorData?.master}</span>
           ) : (
-            <>{isEditMode ? <SelecrMaster /> : <span>вільний</span>}</>
+            <>{isEditMode ? <SelectMaster /> : <span>вільний</span>}</>
           )}
         </div>
       </div>

@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import "./monitorItem.css";
 import { useUpdateUserMutation } from "../../redux/usersApi";
 
-function MonitorItem({ monitor, userData, monitorData }) {
+function MonitorItem({ monitor, userData }) {
   const [openModal, setOpenModal] = useState(false);
   const [deleteMonitor] = useDeleteMonitorMutation();
   const [updateUser] = useUpdateUserMutation();

@@ -23,7 +23,7 @@ function AddUserModal({ open, setOpen, users }) {
   };
 
   async function handleAddUser() {
-    const data = { cardId: cardId, userName: userName, monitors:[]};
+    const data = { cardId: cardId, userName: userName, monitors:[], chairs:[]};
     const isUserAdded = users.filter(
       (user) => Number(user.cardId) === Number(cardId)
     );

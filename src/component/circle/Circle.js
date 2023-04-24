@@ -1,7 +1,7 @@
 import React from "react";
 import './circle.css'
 
-const Circle = ({ percent }) => {
+const Circle = ({ percent = 0}) => {
   const radius = 50; // радиус круга
   const stroke = 10; // толщина линии
 

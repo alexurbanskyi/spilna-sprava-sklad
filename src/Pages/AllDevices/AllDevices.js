@@ -3,24 +3,22 @@ import Loader from "../../component/Loader/Loader";
 import { useAddDesktopMutation } from "../../redux/devicesApi";
 import Circle from "../../component/Circle/Circle";
 import { FiMonitor } from "react-icons/fi";
+import {GiOfficeChair} from 'react-icons/gi'
 import "./allDevices.css";
 
-function AllDevices({ monitorsData }) {
+function AllDevices({ monitorsData, chairsData }) {
+
   function DeviceItem({ itemData, IconItem }) {
     const itemHasMaster = itemData.filter(
       (item) => item?.master?.length
     )?.length;
     const freeItem = itemData.filter((item) => item?.master === null).length;
-    const percent = Math.floor((itemHasMaster / monitorsData.length) * 100);
-
-    console.log("itemHasMaster -->", itemHasMaster);
-    console.log("freeItem -->", freeItem);
-    console.log("percent -->", percent);
+    const percent = Math.floor((itemHasMaster / itemData.length) * 100);
 
     return (
       <div className="deviceItem">
         <div>
-          <Circle percent={percent} />
+          <Circle percent={percent ? percent : 0} />
         </div>
         <div className="deviceItem_info">
           <IconItem className="deviceItem_icon" />
@@ -40,7 +38,10 @@ function AllDevices({ monitorsData }) {
   return (
     <div className="all_devices">
       <div className="all_devices_title">Перелік Обладнання</div>
-      <DeviceItem itemData={monitorsData} IconItem={FiMonitor} />
+      <div className="all_devices_wrapper">
+        <DeviceItem itemData={monitorsData} IconItem={FiMonitor} />
+        <DeviceItem itemData={chairsData} IconItem={GiOfficeChair} />
+      </div>
     </div>
   );
 }
